@@ -21,7 +21,7 @@ export const createClients = async (req, res) => {
       telephone,
       email,
       mot_de_passe,
-    });n
+    });
 
     res.status(201).json(newClient);
   } catch (error) {

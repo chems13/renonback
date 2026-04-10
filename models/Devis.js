@@ -36,6 +36,7 @@ const Devis = sequelize.define("Devis", {
      model: 'Chantiers',
      key: 'id_chantier',
    },
+   onDelete: 'CASCADE',
    },
 
 });

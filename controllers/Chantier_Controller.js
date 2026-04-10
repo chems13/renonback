@@ -13,17 +13,19 @@ export const getChantiers = async (req, res) => {
 // POST
 export const createChantier = async (req, res) => {
   try {
-    const { titre, description, date_debut, date_fin, id_client } = req.body;
+    const { titre, description, date_debut, date_fin,statut, id_client } = req.body;
+    console.log(req.body);
 
-    const newChantier = await Chantier.create({
+    const chantier = await Chantier.create({
       titre,
       description,
       date_debut,
       date_fin,
+      statut,
       id_client,
     });
 
-    res.status(201).json(newChantier);
+    res.status(201).json(chantier);
   } catch (error) {
     res.status(500).json({ erreur: error.message });
   }
@@ -53,7 +55,7 @@ export const updateChantier = async (req, res) => {
 
     const { titre, description, date_debut, date_fin } = req.body;
 
-    await chantier.update({ titre, description, date_debut, date_fin });
+    await chantier.update({ titre, description, date_debut, date_fin, statut, id_client });
 
     res.status(200).json(chantier);
   } catch (error) {

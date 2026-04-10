@@ -13,20 +13,24 @@ const Chantier = Sequelize.define(
 
         titre: {
             type: DataTypes.STRING(30),
-            allownull: false,
+           allowNull : false,
         },
 
         description: {
             type: DataTypes.STRING(30),
-            allownull: false,
+            allowNull: false,
         },
         date_debut: {
             type: DataTypes.DATE,
-            allownull: false,
+            allowNull: false,
         },
         date_fin: {
             type: DataTypes.DATE,
-            allownull: false,
+            allowNull: false,
+        },
+        statut: {
+            type: DataTypes.STRING(30),
+           allowNull : false,
         },
       id_client: {
         type: DataTypes.INTEGER,

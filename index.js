@@ -22,6 +22,7 @@ app.use(cors()); // en mode dev
 // }));
 
 app.use(expres.json());
+app.use(expres.urlencoded({ extended: true }));
 
 app.use("/client", ClientsRouter);
 

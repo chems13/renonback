@@ -39,6 +39,7 @@ const Commentaire = sequelize.define("Commentaire", {
       model: "Clients",
       key: "id_client",
     },
+    onDelete: "CASCADE",
   },
 });
 

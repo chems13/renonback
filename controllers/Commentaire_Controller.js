@@ -69,9 +69,10 @@ export const updateCommentaire = async (req, res) => {
       return res.status(404).json({ msg: "Pas de commentaire avec cet ID" });
     }
 
-    const { contenu, date_comment, id_chantier } = req.body;
+    const { contenu, date_comment,note, id_chantier, id_client } = req.body;
+    
 
-    await commentaire.update({ contenu, date_comment, id_chantier });
+    await commentaire.update({ contenu, date_comment,note, id_chantier, id_client });
 
     res.status(200).json(commentaire);
   } catch (error) {

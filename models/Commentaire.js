@@ -20,7 +20,7 @@ const Commentaire = sequelize.define("Commentaire", {
   
   note: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
   },
 
   id_chantier: {

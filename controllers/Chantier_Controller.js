@@ -1,4 +1,6 @@
 import Chantier from "../models/Chantier.js";
+import Clients from "../models/Clients.js";
+import Commentaire from "../models/Commentaire.js";
 
 // GET all
 export const getChantiers = async (req, res) => {
@@ -34,7 +36,8 @@ export const createChantier = async (req, res) => {
 // GET by ID
 export const getChantier = async (req, res) => {
   try {
-    const chantier = await Chantier.findByPk(req.params.id);
+    const chantier = await Chantier.findByPk(req.params.id, { include: [Clients, Commentaire] });
+    
 
     if (!chantier)
       return res.status(404).json({ msg: "Pas de chantier avec cet ID" });

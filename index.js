@@ -7,6 +7,10 @@ import  ChantierRouter from "./routes/Chantier.route.js";
 import DevisRouter from "./routes/Devis.route.js";   
 import CommentaireRouter from "./routes/Commentaire.route.js";
 import cors from "cors";
+import User from "./models/User.js";
+import UserRouter from "./routes/User.route.js";
+
+
 
 
 
@@ -22,6 +26,7 @@ app.use(cors()); // en mode dev
 // }));
 
 app.use(expres.json());
+
 app.use(expres.urlencoded({ extended: true }));
 
 app.use("/client", ClientsRouter);
@@ -32,7 +37,7 @@ app.use("/devis", DevisRouter);
 
 app.use("/commentaire", CommentaireRouter);
 
-
+app.use("/user",UserRouter);
 
 
 

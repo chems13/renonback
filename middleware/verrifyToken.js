@@ -13,6 +13,7 @@ const verifyToken = (req,res,next) =>{
         const token =authHeader.split(" ")[1];
 
          const decode = jwt.verify(token,process.env.TOKEN);
+         
          req.user = decode;
       
     

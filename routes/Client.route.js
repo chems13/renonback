@@ -17,7 +17,6 @@ router.get("/", getClients);
 router.use(verifyToken, verifyRole("ADMIN"));
 
 router.get("/:id", getClient);
-
 router.post("/", createClients);
 router.put("/:id", updateClient);
 router.delete("/:id", deleteClient);

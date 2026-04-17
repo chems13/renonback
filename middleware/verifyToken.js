@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 const verifyToken = (req,res,next) =>{
     try{
     const authHeader = req.headers.authorization;
-    console.log(authHeader);
+    
 
     if(!authHeader || !authHeader.startsWith("Bearer "))
         return res.status(401).json({erreur:"Token manquant"});
@@ -12,15 +12,17 @@ const verifyToken = (req,res,next) =>{
         //extraire le token(sans le mot bearer)
         const token =authHeader.split(" ")[1];
 
-         const decode = jwt.verify(token,process.env.TOKEN);
-         
-         req.user = decode;
-      
-    
+        //verifier le token
+        const decoded = jwt.verify(token,process.env.JWT_SECRET);
 
-    next();
+
+        //ajouter l'utilisateur décodé a la requête
+         req.user = decoded;
+      
+        next();
+
     }catch(err){
-        res.status(500).json({error:err.message});
+        return res.status(500).json({error:"Token non valide"});
     }
 };
 export default verifyToken;
